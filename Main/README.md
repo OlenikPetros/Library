@@ -1,7 +1,7 @@
-## Folder Structure
+## Δομή Φακέλων
 
-The workspace contains two folders by default, where:
+Αυτό το workspace περιέχει 2 φακέλους:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `src`: ο φάκελος που περιέχει τα αρχεία
+- `lib`: ο φάκελος που περιέχει τις συσχετίσεις 
 
