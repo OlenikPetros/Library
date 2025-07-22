@@ -1,14 +1,14 @@
 import java.util.List;
- public class HowToRent {
+import java.sql.*;
+import java.util.ArrayList;
+  public class HowToRent {
 
     public static void allPersonsAndBooks() {
-        List<String> books = FreeBooks.showFreeBooks();
-        List<String> persons = AllPersons.showAllPersons();
+        List<String> books = HowToRent.showFreeBooks();
+        List<String> persons = HowToRent.showAllPersons();
 
-        // Calculate max rows (max length)
         int maxRows = Math.max(books.size(), persons.size());
 
-        // Create 2D array [maxRows][2] -> column 0: books, column 1: persons
         String[][] combined = new String[maxRows][2];
 
         for (int i = 0; i < maxRows; i++) {
@@ -24,5 +24,45 @@ import java.util.List;
             System.out.printf("%-30s | %-30s%n", combined[i][0], combined[i][1]);
         }
     }
+    
+    public static List<String> showFreeBooks() {
+        List<String> books = new ArrayList<>();
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/library", "root", "");
+            Statement stmt = conn.createStatement();
+            String query = "SELECT id, name FROM book WHERE free = 0";
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                books.add(rs.getInt("id") + ": " + rs.getString("name"));
+            }
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return books;
+    }
+     public static List<String> showAllPersons() {
+        List<String> books = new ArrayList<>();
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/library", "root", "");
+            Statement stmt = conn.createStatement();
+            String query = "SELECT id, name FROM person ";
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                books.add(rs.getInt("id") + ": " + rs.getString("name"));
+            }
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return books;
+    }
 }
  
+
+
+
