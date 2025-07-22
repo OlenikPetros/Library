@@ -9,10 +9,10 @@ public class Main {
                 System.out.println("\n--- Library --- \n");
                 System.out.println("1. All Free Books");
                 System.out.println("2. Add New Book");
-                System.out.println("3. Delete  Book"); //AKOMA
+                System.out.println("3. Delete  Book"); 
                 System.out.println("4. All Persons");
                 System.out.println("5. Add Person");
-                System.out.println("6. Delete Person"); //AKOMA
+                System.out.println("6. Delete Person"); 
                 System.out.println("7. RentBook"); 
                 System.out.println("8. RentedBooks");
                 System.out.println("10. Exit");
