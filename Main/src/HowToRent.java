@@ -16,7 +16,7 @@ import java.util.ArrayList;
             combined[i][1] = (i < persons.size()) ? persons.get(i) : "";
         }
 
-        // Print side by side
+     
         System.out.printf("%-30s | %-30s%n", "Books (free=0)", "Persons");
         System.out.println("-----------------------------------------------");
 
